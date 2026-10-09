@@ -11,10 +11,12 @@ It drives three engines:
 | Engine | What the app does |
 |---|---|
 | [llama.cpp](https://github.com/ggml-org/llama.cpp) (`llama-server.exe`) | Serves one GGUF model, or runs the router so every model in the library is available on one port and loads on request. |
-| NInfer (`ninfer-serve.exe`) | Serves one `.ninfer` artifact, with settings saved per artifact. |
-| Strata | Launches Strata's own server with one of the configs its setup wrote. |
+| [NInfer for Windows](https://github.com/natpate/ninfer-windows) (`ninfer-serve.exe`) | Serves one `.ninfer` artifact, with settings saved per artifact. |
+| [Strata](https://github.com/Niko1221/Strata) | Launches Strata's own server with one of the configs its setup wrote. |
 
-You only need the engines you use. llama.cpp alone is enough.
+You only need the engines you use. llama.cpp alone is enough. The app does not include or
+download any engine; get each one from its own project, linked above and under
+[Credits](#credits).
 
 ## What it gives you
 
@@ -94,6 +96,21 @@ Start buttons appear once a folder is set.
 `%APPDATA%\llm-switchboard\` holds `settings.json`, the generated `models.ini`, and
 `local-llama.json`, a small manifest of what is being served that other local tools can read.
 An API key, if you set one, is stored there in plain text.
+
+## Credits
+
+LLM Switchboard is only a front end. The work of running models is done by these projects,
+which are separate from this one and have their own licenses:
+
+- **[llama.cpp](https://github.com/ggml-org/llama.cpp)** by ggml-org and its contributors:
+  `llama-server`, single-model and router mode.
+- **[NInfer for Windows](https://github.com/natpate/ninfer-windows)** by natpate: the Windows
+  build of NInfer that provides `ninfer-serve.exe`. It is a port of
+  **[NInfer](https://github.com/Neroued/ninfer)** by Neroued.
+- **[Strata](https://github.com/Niko1221/Strata)** by Niko1221: the Strata engine, its
+  installer and its server.
+
+The window is built with [PySide6](https://doc.qt.io/qtforpython-6/) (Qt for Python).
 
 ## License
 

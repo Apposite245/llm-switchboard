@@ -1,0 +1,3 @@
+# Extra, only for building the exe with build.ps1.
+-r requirements.txt
+pyinstaller>=6.0

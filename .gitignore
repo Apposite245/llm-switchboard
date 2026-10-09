@@ -1,0 +1,22 @@
+# Build output
+*.spec
+build/
+dist/
+dist-*/
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Settings and generated files never belong in the repository
+settings.json*
+models.ini
+local-llama.json
+
+# Editors and OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

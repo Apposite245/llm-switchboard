@@ -175,7 +175,9 @@ def _repo_identity(folder: Path, root: Path | None) -> tuple[str, str]:
 
 def _walk(root: Path, max_depth: int = MAX_DEPTH):
     """Yield directories under root, depth-limited, skipping dot/system folders."""
-    root = root.resolve()
+    # The root is used as given, not resolved: resolving a junction, symlink or mapped drive
+    # would yield folders that are no longer "under" the root the caller knows, losing each
+    # model's owner and showing paths the user never typed.
     stack = [(root, 0)]
     while stack:
         folder, depth = stack.pop()

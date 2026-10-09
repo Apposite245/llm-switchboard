@@ -4,6 +4,8 @@ A Windows desktop app for running local LLM servers on one GPU. It finds the mod
 drive, builds each server's command line from settings you pick in a form, and starts and
 stops the servers for you.
 
+![The main window: model library on the left, the selected model and its quick settings on the right](docs/screenshots/main.png)
+
 It drives three engines:
 
 | Engine | What the app does |
@@ -29,6 +31,22 @@ You only need the engines you use. llama.cpp alone is enough.
   have, a context above the model's trained size, or a model larger than free VRAM.
 - **Control API** on `127.0.0.1:8090`, so scripts and agents can suspend an engine to free the
   GPU and resume it afterwards. See [CONTROL_API.md](CONTROL_API.md).
+
+## Screenshots
+
+**Every flag has a tooltip** saying what it does, what it costs and what the default is.
+
+![The Flags tab with the tooltip for --cache-type-k](docs/screenshots/flags-tooltip.png)
+
+**The command is built as you change settings**, and can be copied as it is.
+
+![The command preview for a single model](docs/screenshots/command-preview.png)
+
+**Router mode** serves the whole library on one port from a generated preset file.
+
+![Router mode, showing the router command and where its preset file is written](docs/screenshots/router.png)
+
+The screenshots use placeholder model files and a made-up GPU readout.
 
 ## Requirements
 
@@ -59,6 +77,8 @@ The result is `dist\llm-switchboard\llm-switchboard.exe`. Keep the folder togeth
 ## First run
 
 The panel on the left walks you through the two things the app needs:
+
+![First run: the Get started panel with its two buttons](docs/screenshots/first-run.png)
 
 1. **Choose llama-server.exe…** and pick the file from your llama.cpp download.
 2. **Add your models folder…** and pick the folder that holds your models.
